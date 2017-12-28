@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-environment-variables
+  namespace: samples
+spec:
+  containers:
+  - name: sample-environment-variables
+    image: busybox
+    command:
+      - printenv
+    env:
+    - name: SAMPLE_HELLO_WORLD
+      value: Hello world
+    - name: SAMPLE_PATH
+      value: /var/log
+  restartPolicy: OnFailure
