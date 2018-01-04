@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry
+  namespace: sample-registry
+spec:
+  type: NodePort
+  selector:
+    app: registry
+  ports:
+  - port: 5000
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: registry
+  namespace: sample-registry
+spec:
+  serviceName: registry
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: registry
+    spec:
+      containers:
+      - name: registry
+        image: registry
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - mountPath: /var/lib/registry
+          name: registry
+      volumes:
+      - name: registry
+        persistentVolumeClaim:
+          claimName: pvc
