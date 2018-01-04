@@ -82,3 +82,17 @@ Pull the image from the registry `registry.sample-registry:5000`:
 ```
 docker pull registry.sample-registry:5000/sample/hello-world
 ```
+
+## (Optional) Deploy kwk/docker-registry-frontend
+
+Create a service for [kwk/docker-registry-frontend](https://github.com/kwk/docker-registry-frontend):
+
+```
+kubectl create -f registry/frontend.yaml
+```
+
+Access to it (a sample with minikube here):
+
+```
+minikube -n=sample-registry service frontend
+```

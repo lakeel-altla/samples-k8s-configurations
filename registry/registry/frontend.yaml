@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: sample-registry
+spec:
+  type: NodePort
+  selector:
+    app: frontend
+  ports:
+  - port: 80
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: frontend
+  namespace: sample-registry
+spec:
+  serviceName: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: konradkleine/docker-registry-frontend:v2
+        env:
+        - name: ENV_DOCKER_REGISTRY_HOST
+          value: "registry"
+        - name: ENV_DOCKER_REGISTRY_PORT
+          value: "5000"
+        ports:
+        - containerPort: 80
