@@ -6,43 +6,36 @@ Sample configurations to use a private docker registry between virtual clusters.
 
 ### Setup the registry
 
-Create a namespace `sample-registry` for the registry:
+Create a namespace `samples` for the registry:
 
 ```
-kubectl create namespace sample-registry
+kubectl create namespace samples
 ```
 
 Create a persistent volume for the registry to store docker images:
 
 ```
-kubectl create -f registry/pv.yaml
+kubectl create -f pv.yaml
 ```
 
 Create a persistent volume claim for the registry to use the persistent volume:
 
 ```
-kubectl create -f registry/pvc.yaml
+kubectl create -f pvc.yaml
 ```
 
-Create a service running the registry as statefulset:
+Create a service of the registry:
 
 ```
-kubectl create -f registry/statefulset.yaml
+kubectl create -f registry.yaml
 ```
 
 ### Setup a client environment for the registry
 
-
-Create a namespace `sample-registry-client` for the client enviroment:
-
-```
-kubectl create namespace sample-registry-client
-```
-
 Create the client enviroment:
 
 ```
-kubectl create -f client/pod.yaml
+kubectl create -f client.yaml
 ```
 
 ### Push and pull a image
@@ -50,7 +43,7 @@ kubectl create -f client/pod.yaml
 Connect to the client enviroment:
 
 ```
-kubectl --namespace=sample-registry-client exec -it registry-client /bin/sh
+kubectl --namespace=samples exec -it registry-client /bin/sh
 ```
 
 Pull a test image `hello-world`:
@@ -59,28 +52,28 @@ Pull a test image `hello-world`:
 docker pull hello-world
 ```
 
-Set a tag into the image to push the registry `registry.sample-registry:5000`:
+Set a tag into the image:
 
 ```
-docker tag hello-world registry.sample-registry:5000/sample/hello-world:latest
+docker tag hello-world registry:5000/sample/hello-world:latest
 ```
 
-Push the image to the registry `registry.sample-registry:5000`:
+Push the image to the registry:
 
 ```
-docker push registry.sample-registry:5000/sample/hello-world:latest
+docker push registry:5000/sample/hello-world:latest
 ```
 
 Remove the image:
 
 ```
-docker rmi registry.sample-registry:5000/sample/hello-world:latest
+docker rmi registry:5000/sample/hello-world:latest
 ```
 
-Pull the image from the registry `registry.sample-registry:5000`:
+Pull the image from the registry:
 
 ```
-docker pull registry.sample-registry:5000/sample/hello-world
+docker pull registry:5000/sample/hello-world
 ```
 
 ## (Optional) Deploy kwk/docker-registry-frontend
@@ -88,11 +81,11 @@ docker pull registry.sample-registry:5000/sample/hello-world
 Create a service for [kwk/docker-registry-frontend](https://github.com/kwk/docker-registry-frontend):
 
 ```
-kubectl create -f registry/frontend.yaml
+kubectl create -f frontend.yaml
 ```
 
 Access to it (a sample with minikube here):
 
 ```
-minikube -n=sample-registry service frontend
+minikube -n=samples service registry-frontend
 ```

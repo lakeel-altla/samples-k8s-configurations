@@ -11,16 +11,16 @@ Create a namespace `samples` used by this configuration:
 kubectl create namespace samples
 ```
 
-Create and run a pod `sample-environment-variables` passed environment variables and printing them:
+Create and run a pod passed environment variables and printing them:
 
 ```
 kubectl create -f pod.yaml
 ```
 
-Check a log of the pod `sample-environment-variables`:
+Check logs of the pod:
 
 ```
-kubectl --namespace=samples logs sample-environment-variables
+kubectl --namespace=samples logs environment-variables
 ```
 
 This log contains following environment variables passed by pod.yaml:
