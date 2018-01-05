@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc
-  namespace: sample-registry
+  name: registry
+  namespace: samples
 spec:
-  storageClassName: sample-registry-storage
+  storageClassName: samples-registry-storage
   accessModes:
     - ReadWriteOnce
   resources:
