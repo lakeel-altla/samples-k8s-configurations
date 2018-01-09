@@ -1,4 +1,4 @@
-# /ingress-nginx
+# /ingress-nginx-https
 
 Sample configurations to use an ingress with nginx over TLS.
 
