@@ -1,6 +1,6 @@
 # /ingress-nginx
 
-Sample configurations to use an ingress with nginx.
+Sample configurations to use an ingress with nginx over TLS.
 
 # Usage
 
