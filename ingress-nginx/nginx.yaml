@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: samples
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+  namespace: samples
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: nginx

@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+  namespace: samples
+spec:
+  rules:
+  - host: nginx.minikube.test
+    http:
+      paths:
+      - backend:
+          serviceName: nginx
+          servicePort: 80
