@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-tls
+  namespace: samples
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-tls
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-tls
+  namespace: samples
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: nginx-tls

@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-tls
+  namespace: samples
+  annotations:
+    kubernetes.io/ingress.allow-http: "false"
+spec:
+  tls:
+  - hosts:
+    - nginx-tls.minikube.test
+    secretName: nginx-tls
+  rules:
+  - host: nginx-tls.minikube.test
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-tls
+          servicePort: 80
