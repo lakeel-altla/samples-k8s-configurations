@@ -1,7 +1,7 @@
 
 # environment-variables
 
-A sample configuration to pass environment variables to docker containers.
+Sample configurations to pass environment variables to docker containers.
 
 ## Usage
 

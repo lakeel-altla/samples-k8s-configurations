@@ -3,6 +3,8 @@
 Sample Kubernetes configuration files.
 
 - /environment-variables
-    - A sample configuration to pass environment variables to docker containers.
+    - Sample configurations to pass environment variables to docker containers.
+- /ingress-nginx
+    - Sample configurations to use an ingress with nginx.
 - /registry
     - Sample configurations to use a private docker registry between virtual clusters.
