@@ -75,7 +75,7 @@ Start dnsmasq:
 sudo brew services start dnsmasq
 ```
 
-## Note
+### Note
 
 If you change the dnsmasq configuration, you need to restart it and clear the DNS cache:
 
