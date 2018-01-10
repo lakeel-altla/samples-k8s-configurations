@@ -2,8 +2,6 @@
 
 Sample Kubernetes configuration files.
 
-- /dnsmasq-mac
-    - How to setup dnsmasq for this repository on Mac.
 - /environment-variables
     - Sample configurations to pass environment variables to docker containers.
 - /ingress-nginx
@@ -12,3 +10,5 @@ Sample Kubernetes configuration files.
     - Sample configurations to use an ingress with nginx over TLS.
 - /registry
     - Sample configurations to use a private docker registry between virtual clusters.
+- /setup-samples-mac
+    - How to setup for this repository on Mac.

@@ -1,10 +1,31 @@
-# /dnsmasq-mac
+# /setup-samples-mac
 
-How to setup dnsmasq for this repository on Mac.
+How to setup for this repository on Mac.
+
+## Setup openssl
+
+We need the latest openssl (1.0.2n) for our Mac.
+Update it for Homebrew:
+
+```
+brew update
+```
+
+or install it:
+
+```
+brew install openssl
+
+echo "export PATH=/usr/local/opt/openssl/bin:$PATH" >> ~/.bash_profile
+source ~/.bash_profile
+
+which openssl
+openssl version
+```
+
+## Setup dnsmasq
 
 This repository uses the domain **minikube.test**.
-
-## Setup
 
 Install dnsmasq:
 

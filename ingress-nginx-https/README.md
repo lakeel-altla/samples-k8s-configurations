@@ -4,30 +4,9 @@ Sample configurations to use an ingress with nginx over TLS.
 
 ## Prerequirement
 
-See [lakeel-altla/samples-k8s-configurations/dnsmasq-mac](../dnsmasq-mac) and setup your local DNS server resolving the domain **minikube.test**.
+See [lakeel-altla/samples-k8s-configurations/setup-samples-mac](../setup-samples-mac) and setup your enviroment for this samples.
 
 ## Usage
-
-We assume to use Mac here.
-
-We need the latest openssl (1.0.2n) for our Mac.
-Update it for Homebrew:
-
-```
-brew update
-```
-
-or install it:
-
-```
-brew install openssl
-
-echo "export PATH=/usr/local/opt/openssl/bin:$PATH" >> ~/.bash_profile
-source ~/.bash_profile
-
-which openssl
-openssl version
-```
 
 Generate our self-signed certificate:
 
