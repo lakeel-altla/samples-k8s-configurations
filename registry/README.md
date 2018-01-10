@@ -92,7 +92,7 @@ minikube -n=samples service registry-frontend
 mkdir ~/tls
 cd ~/tls
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=registry.minikube.test"
-kubectl create secret tls nginx-tls --key tls.key --cert tls.crt --namespace=samples
+kubectl create secret tls registry --key tls.key --cert tls.crt --namespace=samples
 ```
 
 Create an ingress for the registry:
