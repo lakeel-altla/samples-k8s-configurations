@@ -6,12 +6,6 @@ Sample configurations to use a private docker registry between virtual clusters.
 
 ### Setup the registry
 
-Create a namespace `samples` for the registry:
-
-```
-kubectl create namespace samples
-```
-
 Create a persistent volume for the registry to store docker images:
 
 ```
@@ -88,4 +82,35 @@ Access to it (a sample with minikube here):
 
 ```
 minikube -n=samples service registry-frontend
+```
+
+## (Optional) Access to the registry via Ingress
+
+(Optional) Create your self-signed certificate for the host **registry.minikube.test** and store it as Secret if you wan to access via HTTPS:
+
+```
+mkdir ~/tls
+cd ~/tls
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=registry.minikube.test"
+kubectl create secret tls registry --key tls.key --cert tls.crt --namespace=samples
+```
+
+Create an ingress for the registry:
+
+```
+kubectl create -f ingress.yaml
+```
+
+Add the following settings to daemon configuration ([Docker] > [Preferences...] > [Daemon] > [Advanced])
+
+```
+{
+  "insecure-registries" : ["registry.minikube.test"]
+}
+```
+
+Test to pull the image:
+
+```
+docker pull registry.minikube.test/sample/hello-world
 ```
