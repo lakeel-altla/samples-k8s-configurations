@@ -6,12 +6,6 @@ Sample configurations to use a private docker registry between virtual clusters.
 
 ### Setup the registry
 
-Create a namespace `samples` for the registry:
-
-```
-kubectl create namespace samples
-```
-
 Create a persistent volume for the registry to store docker images:
 
 ```

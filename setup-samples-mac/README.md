@@ -2,6 +2,14 @@
 
 How to setup for this repository on Mac.
 
+## Create a new namespace
+
+Create a namespace `samples` for samples:
+
+```
+kubectl create namespace samples
+```
+
 ## Setup openssl
 
 We need the latest openssl (1.0.2n) for our Mac.

@@ -8,21 +8,12 @@ See [lakeel-altla/samples-k8s-configurations/setup-samples-mac](../setup-samples
 
 ## Usage
 
-We assume to use Mac here.
-
-Create a namespace `samples` for the registry:
-
-```
-kubectl create namespace samples
-```
-
 Create a service for nginx and an ingress for it:
 
 ```
 kubectrl create -f nginx.yaml
 kubectrl create -f ingress.yaml
 ```
-
 
 Test nginx.minikube.test:
 

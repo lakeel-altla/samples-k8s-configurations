@@ -8,7 +8,7 @@ See [lakeel-altla/samples-k8s-configurations/setup-samples-mac](../setup-samples
 
 ## Usage
 
-Generate our self-signed certificate:
+Generate your self-signed certificate:
 
 ```
 mkdir ~/tls
@@ -16,13 +16,7 @@ cd ~/tls
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=nginx-tls.minikube.test"
 ```
 
-Create a namespace `samples` for the registry:
-
-```
-kubectl create namespace samples
-```
-
-Create a secret for our self-signed certificate:
+Create a secret for your self-signed certificate:
 
 ```
 kubectl create secret tls nginx-tls --key tls.key --cert tls.crt --namespace=samples
