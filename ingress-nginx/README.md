@@ -4,7 +4,7 @@ Sample configurations to use an ingress with nginx.
 
 ## Prerequirement
 
-See [lakeel-altla/samples-k8s-configurations/dnsmasq-mac](https://github.com/lakeel-altla/samples-k8s-configurations/tree/master/dnsmasq-mac) and setup your local DNS server resolving the domain **minikube.test**.
+See [lakeel-altla/samples-k8s-configurations/dnsmasq-mac](../dnsmasq-mac) and setup your local DNS server resolving the domain **minikube.test**.
 
 ## Usage
 
