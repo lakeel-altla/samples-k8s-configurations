@@ -37,19 +37,19 @@ Note: This setting will be lost when restarting the minikube.
 
 See [lakell-altla/samples-k8s-configurations/registry](../registry).
 
-### Build and push the image jenkins-with-plugins
+### Build and push the image jenkins with automated setup
 
-Clone and build the image [lakell-altla/samples-dockerfile/jenkins-with-plugins](../registry):
+Clone and build the image [lakell-altla/samples-dockerfile/jenkins](https://github.com/lakeel-altla/samples-dockerfile/tree/master/jenkins):
 
 ```
-docker build -t jenkins-with-plugins .
+docker build -t jenkins .
 ```
 
 Push it:
 
 ```
-docker tag jenins-with-plugin:latest registry.minikube.test/sample/jenkins-with-plugins:latest
-docker push registry.minikube.test/sample/jenkins-with-plugins:latest
+docker tag jenkins:latest registry.minikube.test/sample/jenkins:latest
+docker push registry.minikube.test/sample/jenkins:latest
 ```
 
 ### Deploy
