@@ -8,6 +8,8 @@ Sample Kubernetes configuration files.
     - Sample configurations to use an ingress with nginx.
 - /ingress-nginx-https
     - Sample configurations to use an ingress with nginx over TLS.
+- /jenkins
+    - Sample configurations of jenkins with autometed setup.
 - /registry
     - Sample configurations to use a private docker registry between virtual clusters.
 - /setup-samples-mac

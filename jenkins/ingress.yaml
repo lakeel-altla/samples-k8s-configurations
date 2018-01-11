@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins
+  namespace: samples
+  annotations:
+    kubernetes.io/ingress.allow-http: "false"
+spec:
+  tls:
+  - hosts:
+    - jenkins.minikube.test
+    secretName: jenkins-tls
+  rules:
+  - host: jenkins.minikube.test
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins
+          servicePort: 8080
