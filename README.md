@@ -10,6 +10,8 @@ Sample Kubernetes configuration files.
     - Sample configurations to use an ingress with nginx over TLS.
 - /jenkins
     - Sample configurations of jenkins with autometed setup.
+- /nginx-blue-green
+    - Sample configurations to do the blue-green deployment with Nginx as an example.
 - /registry
     - Sample configurations to use a private docker registry between virtual clusters.
 - /setup-samples-mac
