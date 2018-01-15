@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-blue-green
+  namespace: samples
+spec:
+  rules:
+  - host: nginx-blue-green.minikube.test
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-blue-green-1-12
+          servicePort: 80
