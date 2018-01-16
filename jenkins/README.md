@@ -57,7 +57,7 @@ docker push registry.minikube.test/sample/jenkins:latest
 Add your account for Jenkins as secrets:
 
 ```
-kubectl create secret generic jenkins-account --from-literal=username=<your username> --from-literal=password=<your password>
+kubectl create secret generic jenkins-account --namespace=samples --from-literal=username=<your username> --from-literal=password=<your password>
 ```
 
 Generate your self-signed certificate:
