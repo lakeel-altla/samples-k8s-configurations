@@ -20,3 +20,7 @@ Sample Kubernetes configuration files.
     - Sample configurations to use a private docker registry between virtual clusters.
 - /setup-samples-mac
     - How to setup for this repository on Mac.
+
+## Prerequirement for all samples
+
+See [lakeel-altla/samples-k8s-configurations/setup-samples-mac](../setup-samples-mac) and setup your enviroment for this samples.

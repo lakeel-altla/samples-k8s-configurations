@@ -2,10 +2,6 @@
 
 Sample configurations to use an ingress with nginx.
 
-## Prerequirement
-
-See [lakeel-altla/samples-k8s-configurations/setup-samples-mac](../setup-samples-mac) and setup your enviroment for this samples.
-
 ## Usage
 
 Create a service for nginx and an ingress for it:

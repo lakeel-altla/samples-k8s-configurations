@@ -2,10 +2,6 @@
 
 Sample configurations for Postgres.
 
-## Prerequirement
-
-See [lakeel-altla/samples-k8s-configurations/setup-samples-mac](../setup-samples-mac) and setup your enviroment for this samples.
-
 ## Usage
 
 Deploy the password for `POSTGRES_PASSWORD` as a secret:
