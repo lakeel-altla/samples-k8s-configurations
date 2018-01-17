@@ -14,6 +14,8 @@ Sample Kubernetes configuration files.
     - Sample configurations to do the blue-green deployment with Nginx as an example. This is based on switching environments with an ingress.
 - /nginx-blue-green-2
     - Sample configurations to do the blue-green deployment with Nginx as an example. This is based on switching environments with services.
+- /postgres
+    - Sample configurations for Postgres.
 - /registry
     - Sample configurations to use a private docker registry between virtual clusters.
 - /setup-samples-mac
