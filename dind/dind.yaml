@@ -1,0 +1,34 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: dind
+  namespace: samples
+spec:
+  ports:
+  - port: 2375
+  selector:
+    app: dind
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: dind
+  namespace: samples
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dind
+    spec:
+      containers:
+      - name: dind
+        image: docker:dind
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: docker-graph-storage
+          mountPath: /var/lib/docker
+      volumes:
+        - name: docker-graph-storage
+          emptyDir: {}
