@@ -10,6 +10,8 @@ Sample Kubernetes configuration files.
     - Sample configurations to use an ingress with nginx over TLS.
 - /jenkins
     - Sample configurations of jenkins with autometed setup.
+- /mysql
+    - Sample configurations for MySQL.
 - /nginx-blue-green
     - Sample configurations to do the blue-green deployment with Nginx as an example. This is based on switching environments with an ingress.
 - /nginx-blue-green-2
