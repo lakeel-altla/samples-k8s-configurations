@@ -2,6 +2,8 @@
 
 Sample Kubernetes configuration files.
 
+- /dind
+    - Sample configuration for DinD (Docker in Docker).
 - /environment-variables
     - Sample configurations to pass environment variables to docker containers.
 - /ingress-nginx
