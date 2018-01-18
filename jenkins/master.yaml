@@ -36,6 +36,7 @@ spec:
       containers:
       - name: jenkins
         image: registry.samples.svc.cluster.local:5000/sample/jenkins
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         - containerPort: 50000
