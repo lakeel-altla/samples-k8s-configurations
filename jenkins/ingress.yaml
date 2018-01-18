@@ -9,7 +9,6 @@ spec:
   tls:
   - hosts:
     - jenkins.minikube.test
-    secretName: jenkins-tls
   rules:
   - host: jenkins.minikube.test
     http:
