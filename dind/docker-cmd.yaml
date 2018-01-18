@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: docker-cmd
+  namespace: samples
+spec:
+  containers:
+  - name: docker-cmd
+    image: docker
+    command: ['docker', 'run', 'hello-world']
+    env:
+    - name: DOCKER_HOST
+      value: tcp://dind:2375
+  restartPolicy: Never
