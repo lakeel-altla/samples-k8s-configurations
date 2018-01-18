@@ -25,31 +25,16 @@ docker push registry.minikube.test/sample/jenkins:latest
 
 ### Deploy
 
-Add your account for Jenkins as secrets:
+Deploy your account for Jenkins as secrets:
 
 ```
-kubectl create secret generic jenkins-account --namespace=samples --from-literal=username=<your username> --from-literal=password=<your password>
+kubectl create secret generic jenkins-account --namespace=samples --from-literal=username=YOUR_USERNAME --from-literal=password=YOUR_PASSWORD
 ```
 
-Generate your self-signed certificate:
+Deploy Jenkins:
 
 ```
-mkdir ~/tls
-cd ~/tls
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=jenkins.minikube.test"
-```
-
-Create a secret for your self-signed certificate:
-
-```
-kubectl -n samples create secret tls jenkins-tls --key tls.key --cert tls.crt
-```
-
-```
-kubectl create -f pv.yaml
-kubectl create -f pvc.yaml
-kubectl create -f master.yaml
-kubectl create -f ingress.yaml
+kubectl create -f .
 ```
 
 ### Access
