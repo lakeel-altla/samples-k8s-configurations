@@ -45,6 +45,7 @@ curl http://green.nginx-blue-green-2.minikube.test/test
 ```
 kubectl apply -f service-blue-1.12.yaml
 kubectl delete -f service-green-1.12.yaml
+kubectl delete -f nginx-1.11.yaml
 ```
 
 Now, the blue environment uses 1.12:
@@ -72,6 +73,7 @@ curl http://green.nginx-blue-green-2.minikube.test/test
 ```
 kubectl apply -f service-blue-1.13.yaml
 kubectl delete -f service-green-1.13.yaml
+kubectl delete -f nginx-1.12.yaml
 ```
 
 Now, the blue environment uses 1.13:
