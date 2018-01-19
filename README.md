@@ -12,6 +12,8 @@ Sample Kubernetes configuration files.
     - Sample configurations to use an ingress with nginx over TLS.
 - /jenkins
     - Sample configurations of jenkins with autometed setup.
+- /jenkins-docker
+    - Sample configuration for Jenkins with Docker.
 - /mysql
     - Sample configurations for MySQL.
 - /nginx-blue-green
