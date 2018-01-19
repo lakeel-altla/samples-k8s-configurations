@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-docker
+  namespace: samples
+spec:
+  selector:
+    app: jenkins-docker
+  ports:
+  - port: 80
+    targetPort: 8080
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: jenkins-docker
+  namespace: samples
+spec:
+  serviceName: jenkins-docker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jenkins-docker
+    spec:
+      initContainers:
+      - name: chmod-jenkins-home
+        image: busybox
+        args:
+         - "/bin/sh"
+         - "-c"
+         - "chmod 0777 /var/jenkins_home"
+        volumeMounts:
+        - mountPath: /var/jenkins_home
+          name: jenkins-home
+      containers:
+      - name: dind
+        image: docker:dind
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: docker-graph-storage
+          mountPath: /var/lib/docker
+        volumeMounts:
+        - mountPath: /var/jenkins_home
+          name: jenkins-home
+      - name: jenkins
+        image: registry.samples.svc.cluster.local:5000/sample/jenkins-docker
+        imagePullPolicy: Always
+        env:
+        - name: DOCKER_HOST
+          value: tcp://localhost:2375
+        ports:
+        - containerPort: 8080
+        - containerPort: 50000
+        volumeMounts:
+        - mountPath: /var/jenkins_home
+          name: jenkins-home
+        - mountPath: /run/secrets/jenkins_account
+          name: jenkins-account
+          readOnly: true
+      volumes:
+      - name: docker-graph-storage
+        emptyDir: {}
+      - name: jenkins-home
+        persistentVolumeClaim:
+          claimName: jenkins-docker-home
+      - name: jenkins-account
+        secret:
+          secretName: jenkins-docker-account

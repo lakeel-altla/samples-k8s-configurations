@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins-docker
+  namespace: samples
+  annotations:
+    kubernetes.io/ingress.allow-http: "false"
+spec:
+  tls:
+  - hosts:
+    - jenkins-docker.minikube.test
+  rules:
+  - host: jenkins-docker.minikube.test
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins-docker
+          servicePort: 8080

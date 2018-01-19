@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: samples-jenkins-docker-home
+spec:
+  storageClassName: samples-jenkins-docker-home-storage
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: /data/samples/jenkins-docker/jenkins_home
+    type: DirectoryOrCreate
